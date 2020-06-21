@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart with Menu</title>
+    <link rel="stylesheet" href="css/cart.css">
+    <script>
+    function bags()
+    {
+      document.getElementById('i3').style="display:block";
+      document.getElementById('i1').style="display:none";
+      document.getElementById('i2').style="display:none";
+
+}
+      function bagl()
+      {
+        document.getElementById('i3').style="display:none";
+      }
+      function mouse()
+      {
+        document.getElementById('i1').style="display:block";
+        document.getElementById('i2').style="display:none";
+        document.getElementById('i3').style="display:none";
+
+  }
+        function mousel()
+        {
+          document.getElementById('i1').style="display:none";
+        }
+        function keyboard()
+        {
+          document.getElementById('i2').style="display:block";
+          document.getElementById('i3').style="display:none";
+          document.getElementById('i1').style="display:none";
+    }
+          function keyboardl()
+          {
+            document.getElementById('i2').style="display:none";
+          }
+          function ATC (pid,a,qty)
+          {
+            a=parseInt(a,10);
+            quan=document.getElementById(qty).value;
+            var t=document.getElementById('total').value;
+            t=parseInt(t,10);
+            t=t+document.getElementById(qty).value*a;
+            document.getElementById('total').value=t;
+
+
+            document.getElementById('cart').innerHTML+="";
+            document.getElementById('cart').innerHTML+="<table align=center border=1><tr><td>Product ID</td><td>Quantity</td><td>Price</td></tr><tr><td>"+pid+"</td><td>"+quan+"</td><td>"+a+"</td></tr></table>";
+          }
+    </script>
+  </head>
+  <body>
+    <div class="head">
+  <u><h1 align=center>VIT Shopping Store</h1></u><hr>
+  <table class="tbl1">
+    <tr bgcolor="#8ad6ff" class="tr1">
+        <th><button type="button" id="2" onmouseover="javascript:mouse()">Mouse</button></th>
+        <th><button type="button" id="3" onmouseover="javascript:keyboard()">Keyboard</button></th>
+        <th><button type="button" id="1" onmouseover="javascript:bags()">Bags</button></th>
+      </tr>
+      <tr>
+      <th>
+      <div id="i1" class="1" onmouseleave="javascript:mousel()">
+
+          <a href="#">Logitech<br></a>
+          <a href="#">CosmicByte<br></a>
+          <a href="#">RedGear<br></a>
+          <a href="#">Razer<br></a>
+          <a href="#">Dell<br></a>
+          <a href="#">Steel Series<br></a>
+
+      </div>
+      </th>
+      <th>
+      <div id="i2" class="2" onmouseleave="javascript:keyboardl()">
+        <a href="#">Logitech<br></a>
+        <a href="#">CosmicByte<br></a>
+        <a href="#">RedGear<br></a>
+        <a href="#">Razer<br></a>
+        <a href="#">Dell<br></a>
+        <a href="#">Steel Series<br></a>
+      </div>
+      </th>
+      <th>
+        <div id="i3" class="3" onmouseleave="javascript:bagl()">
+            <a href="#">Wildcraft<br></a>
+            <a href="#">Addidas<br></a>
+            <a href="#">Puma<br></a>
+            <a href="#">Nike<br></a>
+            <a href="#">Lenovo<br></a>
+            <a href="#">Gucci<br></a>
+        </div>
+      </th>
+    </tr>
+  </table>
+</div>
+<br><br><br><br><br><br><br><br>
+      <table border=1 class="tbl2">
+        <tr>
+          <th class="t2">
+            <input id="PD01" hidden value="PD01"><br>
+            <img src="C:\Users\parth\Desktop\IWP\images\1.jpg" width="20%" height="20%"><br>
+            MOUSE <br>
+            <label for="qty">Quantity:</label><input type="number" min="0" id="qty1" placeholder="Enter Quantity"><br>
+            <input value="Rs.599" id="amt1" readonly><br>
+            <input type="button" value="Add" onclick="javascript:ATC('PD01','599','qty1')">
+          </th>
+          <th class="t2">
+            <br>
+            <input id="PD02" value="PD02" hidden><br>
+            <img src="C:\Users\parth\Desktop\IWP\images\2.jpg" width="40%" height="40%"><br><br>
+            KEYBOARD <br>
+            <label for="qty">Quantity:</label><input type="number" min="0" id="qty2" placeholder="Enter Quantity"><br>
+            <input value="Rs.499" id="amt2" readonly><br>
+            <input type="button" value="Add" onclick="javascript:ATC('PD02','499','qty2')">
+          </th>
+          <th class="t2">
+            <input id="PD03" hidden value="PD03"><br>
+            <img src="C:\Users\parth\Desktop\IWP\images\3.jpg" width="20%" height="20%"><br>
+            BAG <br>
+            <label for="qty">Quantity:</label><input type="number" min="0" id="qty3" placeholder="Enter Quantity"><br>
+            <input value="Rs.599" id="amt3" readonly><br>
+            <input type="button" value="Add" onclick="javascript:ATC('PD03','599','qty3')">
+          </th>
+        </tr>
+
+      </table>
+      <br><br>
+      <h3 align=center><u>Cart</u></h3>
+
+      <div id="cart">
+      </div>
+
+      <div align=right>
+      <label for="total"><b><u>Total Amount </b></u>= <b>Rs.</b></label>
+      <input type="number" id="total" value=0 readonly>
+    </div>
+  </body>
+</html>
